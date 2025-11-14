@@ -1,0 +1,42 @@
+# Configuration for Hippo Dual-AI System
+
+# Volatile Agent (Hippocampal) Configuration
+volatile:
+  window_size: 128              # Context window size
+  embedding_dim: 768            # Embedding dimension
+  device: "cpu"                 # Device: 'cpu' or 'cuda'
+  model_type: "simple"          # Model type: 'simple' or 'random'
+
+# Neocortex Agent Configuration
+neocortex:
+  embedding_dim: 768            # Embedding dimension
+  max_memory_size: 1000         # Maximum memory capacity
+  n_clusters: 50                # Number of concept clusters
+  consolidation_threshold: 10   # Min vectors before clustering
+
+# Semantic Bridge Configuration
+bridge:
+  embedding_dim: 768            # Embedding dimension
+  index_type: "flat"            # FAISS index: 'flat' or 'ivf'
+
+# Inference Cycle Configuration
+cycle:
+  target_cycle_ms: 60.0         # Target cycle time in milliseconds
+  consolidation_interval: 10    # Cycles between consolidation
+
+# Memory Manager Configuration
+memory:
+  replay_buffer_size: 100       # Replay buffer capacity
+  forgetting_strategy: "age"    # Strategy: 'age', 'frequency', 'importance'
+
+# Compression Configuration
+compression:
+  method: "mean"                # Method: 'mean', 'max', 'weighted'
+  clustering_method: "kmeans"   # Method: 'kmeans', 'hierarchical'
+  similarity_threshold: 0.85    # Threshold for merging concepts
+
+# Performance Configuration
+performance:
+  batch_size: 1                 # Batch processing size
+  use_quantization: false       # Enable model quantization
+  enable_caching: true          # Enable embedding caching
